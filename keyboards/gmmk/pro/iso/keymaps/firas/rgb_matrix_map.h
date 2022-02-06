@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifdef RGB_MATRIX_ENABLE
+
 
     // Custom RGB Colours
     #define RGB_GODSPEED 0x00, 0xE4, 0xFF // colour for matching keycaps
@@ -142,5 +142,3 @@
     const uint8_t LED_SIDE_LEFT[] = { LED_L1, LED_L2, LED_L3, LED_L4, LED_L5, LED_L6, LED_L7, LED_L8};
 
     const uint8_t LED_SIDE_RIGHT[] = { LED_R1, LED_R2, LED_R3, LED_R4, LED_R5, LED_R6, LED_R7, LED_R8};
-
-#endif

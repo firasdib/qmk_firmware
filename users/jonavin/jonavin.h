@@ -18,16 +18,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 // DEFINE MACROS
-#define ARRAYSIZE(arr)  sizeof(arr)/sizeof(arr[0])
+//#define ARRAYSIZE(arr)  sizeof(arr)/sizeof(arr[0])
 
 
 // LAYERS
-enum custom_user_layers {
-    _BASE,
-    _FN1,
-    _LOWER,
-    _RAISE,
-};
+//enum custom_user_layers {
+//    _BASE,
+//    _FN1,
+//    _LOWER,
+//    _RAISE,
+//};
 
 // KEYCODES
 enum custom_user_keycodes {
@@ -49,18 +49,6 @@ enum custom_user_keycodes {
 
   NEW_SAFE_RANGE  // new safe range for keymap level custom keycodes
 };
-
-#define KC_CAD  LALT(LCTL(KC_DEL))
-#define KC_AF4	LALT(KC_F4)
-#define KC_TASK	LCTL(LSFT(KC_ESC))
-#define CT_PGUP RCTL(KC_PGUP)
-#define CT_PGDN RCTL(KC_PGDN)
-#define CT_HOME RCTL(KC_HOME)
-#define CT_END  RCTL(KC_END)
-#define KC_SFTUP    RSFT_T(KC_UP) // Shift when held, Up arrow when tapped
-#define KC_RAISESPC LT(_RAISE,KC_SPC) // _RAISE layer mod when held, space when tapped
-#define KC_LOWERSPC LT(_LOWER,KC_SPC) // _LOWER layer mod when held, space when tapped
-
 
 // ENCODER ACTIONS
 #ifdef ENCODER_ENABLE

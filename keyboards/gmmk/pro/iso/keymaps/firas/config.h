@@ -16,24 +16,7 @@
 
 #pragma once
 
-#define TAPPING_TOGGLE 2
-// TT set to two taps
-
-/*  Handle GRAVESC combo keys */
-#define GRAVE_ESC_ALT_OVERRIDE
-    //Always send Escape if Alt is pressed
-#define GRAVE_ESC_CTRL_OVERRIDE
-    //Always send Escape if Control is pressed
-
-#define TAPPING_TERM 180
-
 #ifdef RGB_MATRIX_ENABLE
 #    define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_SOLID_COLOR
 #    define RGB_DISABLE_WHEN_USB_SUSPENDED
 #endif
-
-// add fifth layer for colemak  -- set "COLEMAK_LAYER_ENABLE = yes" in rules.mk to enable
-#if defined COLEMAK_LAYER_ENABLE
-#    define DYNAMIC_KEYMAP_LAYER_COUNT 5
-#    define _COLEMAK 4
-#endif // COLEMAK_LAYER_ENABLE

@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include "rgb_matrix_map.h"
-#include "jonavin.h"
+#include "firas.h"
 
 #define RGB_SIDE_COLOR 0xA9, 0x57, 0x00
 
@@ -35,12 +35,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,                   KC_PGDN,
         KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_NUHS, KC_ENT,           KC_HOME,
         KC_LSFT, KC_NUBS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RSFT, KC_UP,   KC_END,
-        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(_FN1),KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
+        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(1),   KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
     ),
 
     [1] = LAYOUT(
         _______, KC_MYCM, KC_WHOM, KC_CALC, KC_MSEL, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, KC_MUTE, KC_VOLD, KC_VOLU, _______, KC_CALC,          _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET,            RGB_TOG,
+        _______, RGB_TOG, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET,            RGB_TOG,
         _______, _______, _______, _______, _______, _______, _______, _______, KC_SLCK, _______, _______, _______, _______,                   _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
         _______, _______, _______, _______, _______, _______, _______, NK_TOGG, _______, _______, _______, _______,          _______, RGB_MOD, _______,
@@ -51,11 +51,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     uint8_t mods_state = get_mods();
+
     if (mods_state & MOD_BIT(KC_LCTL)) {
         encoder_action_volume(clockwise);
     } else {
         encoder_action_navpage(!clockwise);
     }
+
     return true;
 }
 
@@ -82,7 +84,7 @@ void keyboard_post_init_keymap(void) {
     // keyboard_post_init_user() moved to userspace
 //    rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR);
 //    rgb_matrix_set_color_all(RGB_NAUTILUS); // Default startup colour
-    activate_rgb_nightmode(false);  // Set to true if you want to startup in nightmode, otherwise use Fn + Z to toggle
+    activate_rgb_nightmode(true);  // Set to true if you want to startup in nightmode, otherwise use Fn + Z to toggle
 
     for (uint8_t i = 0; i < ARRAYSIZE(LED_SIDE_LEFT); i++) {
         rgb_matrix_set_color(LED_SIDE_LEFT[i], RGB_SIDE_COLOR);
